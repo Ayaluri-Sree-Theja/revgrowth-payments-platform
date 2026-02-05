@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_billing_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: event_name
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
+
+  - name: stg_payment_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: invoice_id
+        tests: [not_null]
+      - name: attempt_number
+        tests: [not_null]
+
+  - name: stg_product_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null]

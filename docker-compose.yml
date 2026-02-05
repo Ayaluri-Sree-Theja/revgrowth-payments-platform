@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: rg_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: rg_user
+      POSTGRES_PASSWORD: rg_pass
+      POSTGRES_DB: rg_warehouse
+    ports:
+      - "5432:5432"
+    volumes:
+      - rg_pgdata:/var/lib/postgresql/data
+
+volumes:
+  rg_pgdata:

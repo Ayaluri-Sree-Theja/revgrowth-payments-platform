@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: mart_revenue_monthly
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month", "plan_id"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: plan_id
+        tests: [not_null]
+
+  - name: mart_payment_reliability
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: failure_rate_pct
+        tests:
+          - value_between:
+              arguments:
+                column_name: failure_rate_pct
+                min_value: 0
+                max_value: 0.2
+      - name: avg_attempts
+        tests:
+          - value_between:
+              arguments:
+                column_name: avg_attempts
+                min_value: 1
+                max_value: 5
+
+  - name: mart_engagement
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month", "customer_id"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
+
+  - name: mart_customer_360
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month", "customer_id"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
+
+  - name: mart_failure_to_churn_signal
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month", "customer_id"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
+
+  - name: mart_failure_reason_monthly
+    description: Monthly payment failure breakdown by reason
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month_start", "failure_reason"]
+    columns:
+      - name: month_start
+        tests: [not_null]
+      - name: failure_reason
+        tests: [not_null]
+      - name: failed_invoices
+        tests: [not_null]
+      - name: total_invoices
+        tests: [not_null]
+      - name: failure_rate_pct
+        tests:
+          - not_null
+          - value_between:
+              arguments:
+                column_name: failure_rate_pct
+                min_value: 0
+                max_value: 0.2
+
+  - name: mart_payment_reliability_plan_monthly
+    tests:
+      - grain_unique:
+          arguments:
+            columns: ["month", "plan_id"]
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: plan_id
+        tests: [not_null]
+      - name: failure_rate_pct
+        tests:
+          - value_between:
+              arguments:
+                column_name: failure_rate_pct
+                min_value: 0
+                max_value: 0.2
+      - name: avg_attempts
+        tests:
+          - value_between:
+              arguments:
+                column_name: avg_attempts
+                min_value: 1
+                max_value: 5

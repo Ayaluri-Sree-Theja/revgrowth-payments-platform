@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: rg_warehouse
+    schema: bronze
+    tables:
+      - name: billing_events
+      - name: payment_events
+      - name: product_events

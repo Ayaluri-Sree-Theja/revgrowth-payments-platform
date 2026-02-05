@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# dbt
+dbt/**/target/
+dbt/**/dbt_packages/
+dbt/**/.user.yml
+dbt.log
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Data outputs (optional but recommended)
+scripts/sdv/outputs/
+outputs/
+*.csv
