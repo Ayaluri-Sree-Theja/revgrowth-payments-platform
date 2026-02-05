@@ -1,5 +1,7 @@
-Revenue Growth Payments Platform
-Overview
+**Revenue Growth Payments Platform**
+
+**Overview**
+
 Revenue growth can appear healthy even when payment systems are silently failing underneath. This project models a realistic SaaS payments environment to uncover hidden revenue leakage, early churn signals, and actionable recovery opportunities.
 The platform simulates production-scale billing, payment, and product events, transforms them using modern analytics engineering practices, and surfaces executive-grade business insights through focused dashboards.
 This is not a visualization project, it is a decision intelligence system.
@@ -99,5 +101,6 @@ This project demonstrates:
 •	Business-first thinking
 •	Executive communication skills
 •	Ability to connect data → insight → action
+
 
 
